@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% autoescape true %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Course Registration System</title>
+<style type="text/css">
+<!--
+-->
+</style>
+<script type="text/javascript" src="css/jquery.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<link href="/css/main.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div align="right" style="margin-right: 20px">{{ email }}</div>
+  <br>
+  <div align="right" style="margin-right: 20px">
+    <form id="logout" name="logout" method="post" action="/Logout">
+      <input type="submit" name="logout" value="Logout">
+    </form>
+  </div>
+ <center><h2>Couse Registration System</h2></center>
+<table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><table width="300" border="0" cellpadding="10" cellspacing="0" id="head">
+      <tr>
+        <td width="150" align="center" bgcolor="#FFFFCC"><a href="/">Home</a></td>
+        <td width="150" align="center" bgcolor="#FFFFCC"><a href="/Course">Course</a></td>
+        <td width="150" align="center" bgcolor="#FFFFCC"><a href="/Credit">Credit</a></td>
+      </tr>
+    </td>
+  </tr>
+ </table>
+<table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr><td>
+	<iframe src="{{ cal_src }}" style="border: 0" width="400" height="600" frameborder="0" scrolling="no"></iframe> -->
+	</td>
+	<td>
+	</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+</form>
+</body>
+</html>
+
+{% endautoescape  %}

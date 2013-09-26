@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Register Adminnistrator System</title>
+    <style type="text/css">
+    <!--
+    -->
+    </style>
+    <link href="css/main.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="css/jquery.js"></script>
+    <script type="text/javascript" src="js/credit.js"></script>
+  </head>
+  <body>
+  <div align="right" style="margin-right: 20px">{{ email }}</div>
+  <br>
+  <div align="right" style="margin-right: 20px">
+    <form id="logout" name="logout" method="post" action="/Logout">
+      <input type="submit" name="logout" value="Logout">
+    </form>
+  </div>
+    <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td align="center" class="font2"><div style="margin-bottom:15px;">Register Administrator System</div></td>
+      </tr>
+      <tr>
+        <td>
+          <table width="300" border="0" cellpadding="10" cellspacing="0" id="head">
+            <tr>
+              <td width="150" align="center" bgcolor="#FFFFCC"><a href="/">Course</a></td>
+              <td width="150" align="center" bgcolor="#FFFFCC"><a href="/Notification">Notification</a></td>
+              <td width="150" align="center" bgcolor="#FFFFCC"><a href="/Credit">Credit</a></td>
+              <td width="250" align="center" bgcolor="#FFFFCC"><a href="/ManageUser">Manage User</a></td>
+              <td width="250" align="center" bgcolor="#FFFFCC"><a href="/ManageFaculty">Manage Faculty</a></td>
+              {% if(super==1) %}
+              <td width="250" align="center" bgcolor="#FFFFCC"><a href="/ManageUniversity">Manage University</a></td>
+              {% endif %}
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" bgcolor="#FFFFCC">
+          <div style="margin-top:10px; margin-bottom:10px;">
+            <form action="/ManageUniversityHandler" method="POST" enctype="multipart/form-data">
+              <div>
+                <table border="1">
+                  <tr>
+                    <td>Title</td>
+                    <td>Domain</td>
+                    <td></td>
+                  </tr>
+                  {% for row in universities %}
+                  <tr>
+                    <td align="left" bgcolor="#FFFFCC">{{ row[1] }}</td>
+                    <td align="left" bgcolor="#FFFFCC">{{ row[2] }}</td>
+                    <td align="center" bgcolor="#FFFFCC"><a href="/ManageUniversityHandler?university={{ row[0] }}">Delete</a></td>
+                  </tr>
+                  {% endfor %}
+                </table>
+              </div>
+              <div>
+                Title : <input type="text" name="title" id="title" value=""><br/>
+                Domain : <input type="text" name="domain" id="domain" value="">
+              </div>
+              <input style="width:140px; height:30px;" type="button" name="back" id="back" value="Back" onclick="window.history.back()">
+              <input style="width:140px; height:30px;" type="submit" name="save" id="save" value="Save">
+            </form>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
